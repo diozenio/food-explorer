@@ -23,7 +23,7 @@ describe("Food model", () => {
             image: "image.png",
             price: 4,
             category: 0,
-            ingredients: "Water, sugar and carbon dioxide",
+            ingredients: ["Water", "Sugar"],
         };
 
         const food = Food.fromJSON(foodMock);
@@ -39,8 +39,10 @@ describe("Food model", () => {
         expect(food.price).not.toBeUndefined();
         expect(food.price).toBe(foodMock.price);
         expect(food.category).not.toBeUndefined();
-        expect(food.category).toBe(foodMock.category);
+        expect(food.category).toBe(FoodCategory.BEBIDA);
         expect(food.ingredients).not.toBeUndefined();
-        expect(food.ingredients).toBe(foodMock.ingredients);
+        expect(food.ingredients[0]).toEqual("Water");
+        expect(food.ingredients[1]).toEqual("Sugar");
+        expect(food.ingredients).toHaveLength(2);
     });
 })

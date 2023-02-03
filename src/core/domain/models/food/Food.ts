@@ -9,13 +9,14 @@ class Food extends Model {
     private _image: string;
     private _price: number;
     private _category: FoodCategory;
-    private _ingredients: string;
+    private _ingredients: Array<string>;
 
     constructor() {
         super();
-        this._id = this._name = this._description = this._image = this._ingredients = "";
-        this._category = FoodCategory.BEBIDA;
+        this._id = this._name = this._description = this._image = "";
         this._price = 0;
+        this._category = FoodCategory.BEBIDA;
+        this._ingredients = [];
     }
 
     static fromJSON(json: APIResponse): Food {
@@ -26,7 +27,11 @@ class Food extends Model {
         obj._image = String(json["image"]);
         obj._price = Number(json["price"]);
         obj._category = Number(json["category"]);
-        obj._ingredients = String(json["ingredients"]);
+        if (json["ingredients"]) {
+            obj._ingredients = (json["ingredients"] as string[]).map(item => {
+                return String(item);
+            });
+        }
         return obj;
     }
 
@@ -38,7 +43,7 @@ class Food extends Model {
         dto["image"] = this._image;
         dto["price"] = this._price;
         dto["category"] = this._category;
-        dto["ingredients"] = this._ingredients;
+        dto["ingredients"] = this._ingredients.map(item => item);
         return dto;
     }
 
