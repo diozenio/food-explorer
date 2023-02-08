@@ -1,5 +1,5 @@
 import Model from '@models/model';
-import FoodCategory from '@typing/FoodCategory';
+import FoodCategory from '@typing/food/FoodCategory';
 import APIResponse from '@typing/http/APIResponse';
 
 class Food extends Model {

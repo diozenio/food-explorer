@@ -1,4 +1,4 @@
-import FoodCategory from "@typing/FoodCategory";
+import FoodCategory from "@typing/food/FoodCategory";
 import Food from "./Food";
 
 describe("Food model", () => {
