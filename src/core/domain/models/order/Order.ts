@@ -7,7 +7,7 @@ class Order extends Model {
     private _foodsId: Array<string>;
     private _price: number;
     private _status: boolean;
-    private _createdAt: string;
+    private _createdAt: number;
 
     constructor() {
         super();
@@ -15,7 +15,7 @@ class Order extends Model {
         this._price = 0;
         this._foodsId = [];
         this._status = false;
-        this._createdAt = new Date().toISOString();
+        this._createdAt = Date.now();
     }
 
     static fromJSON(json: APIResponse): Order {
@@ -25,7 +25,7 @@ class Order extends Model {
         order._foodsId = (json["foodsId"] as string[]).map(foodId => foodId);
         order._price = Number(json["price"]);
         order._status = Boolean(json["status"]);
-        order._createdAt = String(json["createdAt"]);
+        order._createdAt = Number(json["createdAt"]);
         return order;
     }
 
