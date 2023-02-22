@@ -9,6 +9,14 @@
 body {
   min-width: 320px;
   min-height: 100vh;
+  background-color: #000a0f;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 * {
