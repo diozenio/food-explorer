@@ -1,0 +1,32 @@
+.anchor {
+    position: relative;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: #C4C4CC;
+        border-radius: 8px;
+        bottom: 0;
+        left: 50%;
+        height: 1px;
+        width: 0px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    &:hover {
+        color: #C4C4CC;
+
+        &::after {
+            left: 0;
+            width: 100%;
+        }
+    }
+}
