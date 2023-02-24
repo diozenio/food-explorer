@@ -24,6 +24,7 @@ export function TextInput({ id, label, labelStyle, prefixIcon, style, ...props }
 
                 <input
                     id={id}
+                    autoComplete="off"
                     {...props}
                 />
             </div>
